@@ -1,0 +1,14 @@
+@startuml
+|管理员|
+start
+:输入书名;
+|管理员|
+|#AntiqueWhite|系统|
+:根据借书记录验证图书信息;
+:显示借阅该书的读者信息;
+:修改借书记录;
+:更新书籍状态;
+:增加库存;
+stop
+|#AntiqueWhite|系统|
+@enduml

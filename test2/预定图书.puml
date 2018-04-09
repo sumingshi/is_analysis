@@ -1,0 +1,21 @@
+@startuml
+|借阅者|
+start
+:登陆账号;
+if(成功?)then(否)
+    :结束;
+    stop
+else(是)
+    :输入书名;
+    |借阅者|
+    |#AntiqueWhite|系统|
+    :查询库存;
+    if(库存是否大于1？)then(否)
+        :返回错误信息;
+    else(有)
+        :书籍库存减一;
+        :预定成功;
+    endif
+    stop
+    |系统|
+@enduml

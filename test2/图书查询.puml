@@ -1,0 +1,15 @@
+@startuml
+|借阅者|
+start
+:输入书名;
+|借阅者|
+|#AntiqueWhite|系统|
+:查询数据库;
+if(是否有该书籍？)then(没有)
+    :返回错误信息;
+else(有)
+    :显示书籍信息;
+endif
+stop
+|系统|
+@enduml

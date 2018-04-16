@@ -1,0 +1,67 @@
+@startuml
+scale 750 width
+package bean <<Folder>> #skyblue{
+  借阅 "1" *- "1" 借阅Id
+  读者 "1"-- "*" 图书
+  读者类目 "1" o- "1..*" 读者
+  图书类图 "1" o- "1..*" 图书
+  读者 "1"--"*" 罚金
+  游客 <|-- 读者 : 注册登录
+  class 图书{
+  ..列举了部分私有属性..
+  	- Integer id;
+  	- Integer bookcat;
+  	- String bookname;
+  	- String isbn;
+  	- String publish;
+  	- Date pubdate;
+  }
+  class 借阅Id{
+  __私有属性__
+    - Integer bookid;
+    - Integer readerid;
+  }
+  class 罚金{
+  __私有属性__
+  - Integer id;
+  - Integer hourlong;
+  - Float fine;
+  }
+  class 图书类目{
+  __私有属性__
+    - Integer id;
+    - Integer parentid;
+    - Boolean isparent;
+    - String name;
+    __公有方法__
+    Getter and Setter
+  }
+  class 借阅{
+  __私有属性__
+    - BorrowId id;
+    - Integer punishid;
+    - Boolean isreturn;
+    - Boolean isrenew;
+    - Date time;
+  }
+  class 读者{
+  __私有属性__
+  	- Integer id;
+  	- Integer readercat;
+  	- Integer studentno;
+  	- String password;
+  	- String name;
+  	- String sex;
+  			..Getter and Setter..
+    		+ getUsername()
+     		+ getPassword()
+     		+ setUsername()
+     		+ setPassword()
+  }
+  class 游客 {
+  		__ public method __
+  		+查询图书()
+  	}
+}
+
+@enduml

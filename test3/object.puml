@@ -1,0 +1,45 @@
+@startuml
+
+读者类目 "1" -- "*" 读者
+借阅 "1" -- "1" 罚金
+借阅Id "1" -- "1" 借阅
+借阅Id--> 读者
+借阅Id -> 图书
+object 读者类目 {
+  id = 1
+  name = "优秀"
+}
+object 读者{
+    ID= 1
+    StudentNo=23
+    Name="诗诗"
+    Password= 111111
+    Sex= "woman"
+    Belong="1"
+    BorrowCount=16
+    Picture="a.png"
+
+}
+object 借阅{
+  ID= 1
+  Punishid=2
+  isReturn=false
+  isRenew=true
+}
+object 借阅Id{
+  BookId=12
+  ReaderId=1
+}
+object 图书{
+  	id=12
+  	bookcat=1
+  	bookname="圣女的救济"
+  	isbn="324312698416516"
+  	publish=1
+}
+object 罚金{
+ ID=2
+ T=3
+ fee=200
+}
+@enduml

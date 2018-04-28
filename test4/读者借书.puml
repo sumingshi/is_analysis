@@ -1,0 +1,37 @@
+@startuml
+autonumber
+actor 读者 as d
+actor 管理员 as g
+participant 控制台 as c
+database reader as r
+database borrow as b
+database book
+d->g:请求借书
+activate d
+note left:告诉管理员要借阅的所有书籍
+activate g
+g-->d:请求读者号
+d->g:返回
+g->c:登入系统
+activate c
+c->r:查询读者
+activate r
+r-->c:返回读者号
+deactivate r
+note right:要先找到该读者，才能找到该\n读者的borrow并进行操作
+loop 执行N次
+c->b:借阅书籍
+activate b
+b->book:增加借阅记录，书库数量减一
+activate book
+book-->b:success
+deactivate book
+b-->c:借阅成功
+end
+deactivate b
+c-->g:所有书籍借阅成功
+deactivate c
+g-->d:所有书籍借阅成功
+deactivate g
+deactivate d
+@enduml

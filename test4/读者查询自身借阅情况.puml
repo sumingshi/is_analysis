@@ -1,0 +1,25 @@
+@startuml
+autonumber
+actor 读者 as d
+participant 控制台 as c
+database borrow
+database fine
+d->c:登陆系统
+activate d
+activate c
+c->borrow:查询借阅情况
+activate borrow
+borrow-->borrow:有未还书籍
+activate borrow #orange
+borrow->fine:查询罚金信息
+activate fine
+fine-->borrow:返回结果
+deactivate fine
+borrow-->c:显示罚金情况
+deactivate borrow
+borrow-->c:显示借阅记录
+deactivate borrow
+c-->d:退出系统
+deactivate c
+deactivate d
+@enduml

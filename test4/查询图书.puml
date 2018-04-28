@@ -1,0 +1,24 @@
+@startuml
+autonumber
+actor 读者或游客 as dy
+participant 控制台 as c
+database bookcat
+database book
+dy->c:输入网址，进入
+activate dy
+activate c
+c->bookcat:请求加载图书类目
+activate bookcat
+bookcat-->c:返回图书类目
+deactivate bookcat
+loop 查询N次
+    c->book:查询书籍
+    activate book
+    book-->c:显示书籍信息
+end
+deactivate book
+note right:读者或游客大多数都会不止查询一次
+c-->dy:退出控制台
+deactivate c
+deactivate dy
+@enduml

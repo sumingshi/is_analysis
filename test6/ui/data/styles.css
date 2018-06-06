@@ -4,7 +4,7 @@
   font-style:normal;
   font-size:13px;
   color:#333333;
-  text-align:center;
+  text-align:left;
   line-height:normal;
 }
 .box_1 {
@@ -15,9 +15,11 @@
 .image {
 }
 .button {
+  text-align:center;
 }
 .primary_button {
   color:#FFFFFF;
+  text-align:center;
 }
 .link_button {
   color:#169BD5;

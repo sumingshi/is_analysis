@@ -1,0 +1,23 @@
+@startuml
+autonumber
+hide footbox
+actor teacher as ls
+participant 操作界面 as jm
+participant experiment as sy
+participant scoreitem as pfx
+ls->jm:选择删除实验
+activate ls
+activate jm
+jm->sy:查询该实验
+activate sy
+sy->jm:删除该实验并返回
+deactivate sy
+jm->pfx:查询该实验的成绩
+activate pfx
+pfx->pfx:删除成绩
+pfx->jm:已删除
+deactivate pfx
+jm->ls:删除成功
+deactivate jm
+deactivate ls
+@enduml
